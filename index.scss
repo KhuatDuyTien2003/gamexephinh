@@ -1,0 +1,39 @@
+html{
+    background-image: url(./Hinh-nen-chill-PC-21.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#canvas {
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 40%;
+    display: block;
+   
+}
+button{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    font-size:25px;
+    margin-top: 1%;
+}
+button:first-child{
+    margin-left: 37%;
+}
+button:nth-child(2){
+    margin-left: 2%;
+}
+button:last-child{
+    margin-left: 2%;
+}
+
+button:hover{
+    background-color: red;
+    color: aliceblue;
+}
+button:active{
+    background-color: rgb(247, 243, 243);
+    color: rgb(9, 9, 9);
+}
