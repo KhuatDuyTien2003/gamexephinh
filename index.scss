@@ -1,39 +1,87 @@
-html{
+html {
     background-image: url(./Hinh-nen-chill-PC-21.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    width: 100%;
 }
+
 #canvas {
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 40%;
+    margin: auto;
+
     display: block;
-   
+
 }
-button{
+
+button {
     width: 150px;
     height: 50px;
     border-radius: 5px;
     border: 0;
-    font-size:25px;
+    font-size: 25px;
     margin-top: 1%;
 }
-button:first-child{
+
+button:first-child {
     margin-left: 37%;
 }
-button:nth-child(2){
-    margin-left: 2%;
-}
-button:last-child{
+
+button:nth-child(2) {
     margin-left: 2%;
 }
 
-button:hover{
+button:last-child {
+    margin-left: 2%;
+}
+
+button:hover {
     background-color: red;
     color: aliceblue;
 }
-button:active{
+
+button:active {
     background-color: rgb(247, 243, 243);
     color: rgb(9, 9, 9);
+}
+
+.report {
+    width: 750px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+    background-color: rgb(233, 119, 129);
+    // left: 32%;
+    top: -800px;
+
+    h1 {
+        text-align: center;
+        font-size: 45px;
+        padding-top: 5%;
+        color: rgb(11, 216, 90);
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 40px;
+        padding-top: 1%;
+        color: rgb(11, 216, 90);
+    }
+
+    button {
+        margin-left: 20%;
+    }
+
+    #continue {
+        display: block;
+        margin: auto;
+    }
+
+}
+
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
 }

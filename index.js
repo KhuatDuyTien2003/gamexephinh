@@ -95,7 +95,7 @@ class Shape{
         let a = this.square[(this.gocquay + 1)% this.square.length];
         if(this.checkCollide(0,0,a) ){
             if(this.x > 10){
-                check = -1
+                check = 0
             }
             else
             {
@@ -142,24 +142,16 @@ class Shape{
                     continue
                 }
                 if(this.y + r < 0){
-                    document.getElementById("loseGame").play();
-                    alert('Game Over')
-                    for(let r = 0; r < col; r++){
-                        board[r] = [];
-                        for(let c =  0; c < row; c++){
-                            board[r][c] = COLOR;
-                        }
-                    }
-                    drawBoard();
-                    
+                    document.getElementById("loseGame").play(1);
                     gameOver = true
-                    score = 0
-                   
-                    
+                    clearInterval(interval)
+                    let a = document.getElementById("an")
+                    document.getElementById("an").innerHTML = "<h1>Game Over</h1>"+
+                    "<h3>Điểm bạn đạt được: <span id='score'>"+score+"</span></h3>"+
+                    "<button onclick = 'Reset()'>Chơi lại</button>"+
+                    "<button onclick = 'Out()'>Thoát</button>"
+                    a.setAttribute("class", "report")
                     break;
-                
-                    
-                    
                 }  
                board[this.x+c][this.y+r] = this.color
                
@@ -212,6 +204,7 @@ function moveDown(){
 }
 function Start(){
     drawBoard();
+    shape1 = randomSquare();
     document.getElementById("startGame").pause();
     interval = setInterval(moveDown,1000);
 }
@@ -239,6 +232,48 @@ function moveSelection(evt){
         }
     }
 }
+function Reset(){
+    for(let r = 0; r < col; r++){
+        board[r] = [];
+        for(let c =  0; c < row; c++){
+            board[r][c] = COLOR;
+        }
+    }
+    drawBoard();
+    document.getElementById("an").setAttribute("class", "");
+    score = 0;
+    shape1 = randomSquare();
+    document.getElementById("an").innerHTML = ""
+    document.getElementById("score").innerHTML = score
+}
+function Stop() {
+    clearInterval(interval)
+    let a = document.getElementById("an")
+    document.getElementById("an").innerHTML = "<h1>Tạm Dừng</h1>" +
+        "<h3>Điểm bạn đạt được: <span id='score'>" + score + "</span></h3>" +
+        "<button onclick = 'Reset()'>Chơi lại</button>" +
+        "<button onclick = 'Out()'>Thoát</button>"+
+        "<button id = 'continue' onclick = 'Continue()'>Chơi Tiếp</button>"
+    a.setAttribute("class", "report")
+}
+function Continue(){
+    interval = setInterval(moveDown,1000);
+    document.getElementById("an").setAttribute("class", "")
+    document.getElementById("an").innerHTML = ""
+}
+function Out(){
+    let a = document.getElementById("an")
+    document.getElementById("an").innerHTML = "<h1>Bạn chắc chắn muốn thoát trò chơi???</h1>" +
+        "<button onclick = 'Out1()'>Thoát</button>" +
+        "<button onclick = 'Stop()'>Ở lại</button>"
+    a.setAttribute("class", "report")
+}
+function Out1(){
+    location.assign("https://www.google.com.vn/?hl=vi")
+}
+
+
+
 window.addEventListener("keydown",moveSelection);
 
 
